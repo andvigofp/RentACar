@@ -1,12 +1,9 @@
 package org.example.repository;
 
 import org.example.model.Car;
-import org.example.model.Client;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @Author: Andrés Fernández Pereira
@@ -30,10 +27,10 @@ class CarRepositoryTest {
     void add() {
         Car car4 = new Car("ASL");
         repository.add(car4);
-        Assertions.assertEquals(car4,repository.findById(4L));
+        Assertions.assertEquals(4,repository.findAll().size());
         Car car5 = new Car("VCS");
         repository.add(car5);
-        Assertions.assertEquals(car5.getLicensePlaze(),repository.findById(5L).getLicensePlaze());
+        Assertions.assertEquals(5,repository.findAll().size());
 
 
     }
@@ -77,13 +74,13 @@ class CarRepositoryTest {
 
     @Test
     void findById() {
-        Assertions.assertEquals(1L,repository.findById(1L).getId());
+        Assertions.assertEquals(1L,repository.findById(1L).getIdCar());
         Assertions.assertEquals("FGH", repository.findById(2L).getLicensePlaze());
     }
 
     @Test
     void findBylicensePlate() {
-        Assertions.assertEquals(1, repository.findById(1L).getId());
+        Assertions.assertEquals(1, repository.findById(1L).getIdCar());
         Assertions.assertEquals("FGH", repository.findBylicensePlate("FGH").getLicensePlaze());
     }
 

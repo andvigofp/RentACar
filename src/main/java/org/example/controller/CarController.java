@@ -31,8 +31,13 @@ public class CarController {
         return service.findAll();
     }
 
-    public Car findBylicensePlate(String licensePlate){
+    public Car findBylicensePlate( String licensePlate){
         return service.findBylicensePlate(licensePlate);
+    }
+
+    public void update(Long id, String licensePlate) {
+        Car car = new Car(id,licensePlate);
+        service.update(car);
     }
 
 

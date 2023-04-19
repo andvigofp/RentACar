@@ -24,7 +24,7 @@ public CarRepository() {
 
 
     public void update(Car car) {
-        Car carToUpdate = findById(car.getId());
+        Car carToUpdate = findById(car.getIdCar());
         if(carToUpdate != null){
             carToUpdate.setLicensePlaze(car.getLicensePlaze());
 
@@ -39,9 +39,9 @@ public CarRepository() {
 
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(Long idCar) {
         for (Car car : cars) {
-            if (car.getId() == id) {
+            if (car.getIdCar() == idCar) {
                 cars.remove(car);
                 break;
             }
@@ -52,16 +52,16 @@ public CarRepository() {
     @Override
     public Long nextIdAvailable() {
         if(!cars.isEmpty()){
-            return cars.get(cars.size()-1).getId() + 1;
+            return cars.get(cars.size()-1).getIdCar() + 1;
         }
         else{
             return (long)1;
         }
     }
 
-    public Car findById(Long id) {
+    public Car findById(Long idCar) {
         for (Car car : cars) {
-            if(car.getId() == id){
+            if(car.getIdCar() == idCar){
                 return car;
             }
         }
