@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.controller.CarController;
 import org.example.controller.ClientController;
 
 import java.util.InputMismatchException;
@@ -8,9 +9,11 @@ import java.util.Scanner;
 public class Dialog {
 
     private ClientController clientController;
+    private CarController carController;
     private Scanner scanner;
     public Dialog() {
         clientController = new ClientController();
+        carController = new CarController();
     }
 
 
@@ -28,7 +31,7 @@ public class Dialog {
                 if (choice == 1) {
                     clientManager();
                 } else if (choice == 2) {
-                    //TODO
+                    carManager();
                 } else if (choice == 3) {
                     //TODO
                 } else if (choice == 4) {
@@ -50,6 +53,9 @@ public class Dialog {
                 System.err.println(e.getMessage());
             }
         } while (true);
+    }
+
+    public void carManager() {
     }
 
     public void clientManager(){
