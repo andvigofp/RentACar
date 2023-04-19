@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import org.example.model.Car;
+import org.example.model.Client;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,23 +16,23 @@ public CarRepository() {
     cars = new ArrayList<>();
 }
 
-    @Override
+
     public void add(Car car) {
     car.setId(nextIdAvailable());
     cars.add(car);
     }
 
-    @Override
+
     public void update(Car car) {
-    Car carToUpdate = findById(car.getId());
-    if(carToUpdate !=null) {
-        carToUpdate.setId(car.getId());
-        carToUpdate.setLicensePlaze(car.getLicensePlaze());
-    }
+        Car carToUpdate = findById(car.getId());
+        if(carToUpdate != null){
+            carToUpdate.setLicensePlaze(car.getLicensePlaze());
+
+        }
     }
 
 
-    @Override
+
     public ArrayList findAll() {
         return cars;
     }
@@ -39,32 +40,41 @@ public CarRepository() {
 
     @Override
     public void deleteById(Long id) {
-    if (!cars.isEmpty()) {
-        Iterator<Car> iterator = cars.iterator();
-        while (iterator.hasNext());
-        Car car = iterator.next();
-        if (car.getId()==id) {
-            cars.remove(car);
+        for (Car car : cars) {
+            if (car.getId() == id) {
+                cars.remove(car);
+                break;
+            }
         }
     }
-    }
-
 
 
     @Override
     public Long nextIdAvailable() {
-        return null;
+        if(!cars.isEmpty()){
+            return cars.get(cars.size()-1).getId() + 1;
+        }
+        else{
+            return (long)1;
+        }
     }
 
-    @Override
     public Car findById(Long id) {
+        for (Car car : cars) {
+            if(car.getId() == id){
+                return car;
+            }
+        }
         return null;
     }
 
-    @Override
     public Car findBylicensePlate(String licensePlate) {
+        for (Car car : cars) {
+            if(car.getLicensePlaze().equals(licensePlate)){
+                return car;
+            }
+        }
         return null;
     }
-
 
 }

@@ -7,12 +7,14 @@ public class Car {
     private Long id;
     private String licensePlaze;
 
-    public Car(String licensePlaze) {
-        this.licensePlaze = licensePlaze;
-    }
+
 
     public Car(Long id, String licensePlaze) {
         this.id = id;
+        this.licensePlaze = licensePlaze;
+    }
+
+    public Car(String licensePlaze) {
         this.licensePlaze = licensePlaze;
     }
 

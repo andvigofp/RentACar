@@ -9,5 +9,8 @@
         <module name="RentACar" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Ejercicios" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
