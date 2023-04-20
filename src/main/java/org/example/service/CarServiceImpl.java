@@ -2,11 +2,10 @@ package org.example.service;
 
 import org.example.model.Car;
 import org.example.repository.CarRepository;
-import org.example.repository.ClientRepository;
 import org.example.repository.ICarRepository;
-import org.example.repository.IClientRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Andrés Fernández Pereira
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 public class CarServiceImpl implements ICarService {
     private ICarRepository repository;
 
-    public CarServiceImpl () {
+    public CarServiceImpl() {
         repository = new CarRepository();
     }
 
@@ -29,13 +28,13 @@ public class CarServiceImpl implements ICarService {
     }
 
     @Override
-    public ArrayList findAll() {
+    public List<Car> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public Car findBylicensePlate(String licensePlate) {
-        return repository.findBylicensePlate(licensePlate);
+    public Car findByLicensePlate(String licensePlate) {
+        return repository.findByLicensePlate(licensePlate);
     }
 
     @Override

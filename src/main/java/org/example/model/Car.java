@@ -4,31 +4,37 @@ package org.example.model;
  * @Author: Andrés Fernández Pereira
  */
 public class Car {
-    private Long idCar;
+    private Long id;
     private String licensePlaze;
+    private RentalOffice rentalOffice;
 
-
-    public Car(Long idCar) {
-        this.idCar = idCar;
+    public Car(Long id, String licensePlaze) {
+        this.id = id;
+        this.licensePlaze = licensePlaze;
     }
 
     public Car(String licensePlaze) {
         this.licensePlaze = licensePlaze;
     }
 
-    public Car(Long idCar, String licensePlaze) {
-        this.idCar = idCar;
-        this.licensePlaze = licensePlaze;
+    public Car(Long id) {
+        this.id = id;
     }
 
+    public RentalOffice getRentalOffice() {
+        return rentalOffice;
+    }
 
+    public void setRentalOffice(RentalOffice rentalOffice) {
+        this.rentalOffice = rentalOffice;
+    }
 
-    public Long getIdCar() {
-        return idCar;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long idCar) {
-        this.idCar = idCar;
+        this.id = id;
     }
 
     public String getLicensePlaze() {
@@ -42,8 +48,8 @@ public class Car {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Car: ");
-        sb.append(" id: ").append(idCar);
-        sb.append(", licensePlaze: '").append(licensePlaze).append('\'');
+        sb.append(" ID Car: ").append(id);
+        sb.append(", License Plate: '").append(licensePlaze).append('\'');
         return sb.toString();
     }
 }

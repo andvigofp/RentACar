@@ -3,6 +3,7 @@ package org.example.repository;
 import org.example.model.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Andrés Fernández Pereira
@@ -10,10 +11,9 @@ import java.util.ArrayList;
 public interface ICarRepository {
     void add(Car car);
     void deleteById(Long id);
-    ArrayList findAll();
-    public Long nextIdAvailable();
+    List<Car> findAll();
+    Long nextIdAvailable();
     Car findById(Long id);
-    Car findBylicensePlate(String licensePlate);
+    Car findByLicensePlate(String licensePlate);
     void update(Car car);
-
 }
