@@ -5,28 +5,31 @@ package org.example.model;
  */
 public class Car {
     private Long id;
-    private String licensePlaze;
-    private RentalOffice  rentalOfficeAssigned;
+    private String licensePlate;
+    private RentalOffice rentalOffice;
 
-    public Car(Long id, String licensePlaze) {
+    public Car(Long id, String licensePlate, RentalOffice rentalOffice) {
         this.id = id;
-        this.licensePlaze = licensePlaze;
+        this.licensePlate = licensePlate;
+        this.rentalOffice = rentalOffice;
     }
 
-    public Car(String licensePlaze) {
-        this.licensePlaze = licensePlaze;
+    //TODO ¿El coche se añade al array de coches de RentalOffice cuando lo creo o cuando lo añado?
+    public Car(String licensePlate, RentalOffice rentalOffice) {
+        this.licensePlate = licensePlate;
+        this.rentalOffice = rentalOffice;
     }
 
-    public Car(Long id) {
+    public Car(Long id){
         this.id = id;
     }
 
     public RentalOffice getRentalOffice() {
-        return rentalOfficeAssigned;
+        return rentalOffice;
     }
 
-    public void setRentalOffice(RentalOffice rentalOfficeAssigned) {
-        this.rentalOfficeAssigned = rentalOfficeAssigned;
+    public void setRentalOffice(RentalOffice rentalOffice) {
+        this.rentalOffice = rentalOffice;
     }
 
     public Long getId() {
@@ -37,19 +40,20 @@ public class Car {
         this.id = id;
     }
 
-    public String getLicensePlaze() {
-        return licensePlaze;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public void setLicensePlaze(String licensePlaze) {
-        this.licensePlaze = licensePlaze;
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Car: ");
-        sb.append(" ID Car: ").append(id);
-        sb.append(", License Plate: '").append(licensePlaze).append('\'');
+        final StringBuilder sb = new StringBuilder();
+        sb.append("ID Car: ").append(id).append("\t");
+        sb.append("License Plate: ").append(licensePlate).append("\n");
+        sb.append("Rental Office: ").append(rentalOffice).append("\n");
         return sb.toString();
     }
 }
