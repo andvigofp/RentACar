@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @Author: Andrés Fernández Pereira
  */
 public interface RentalOfficeService {
-    void add(RentalOfficeService rentalOfficeService);
+    void add(RentalOffice rentalOffice);
     void deleteById(Integer feeForDelivery);
     ArrayList findAll();
     RentalOffice findByaddress(String address);

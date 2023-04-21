@@ -6,7 +6,7 @@ package org.example.model;
 public class Car {
     private Long id;
     private String licensePlaze;
-    private RentalOffice rentalOffice;
+    private RentalOffice  rentalOfficeAssigned;
 
     public Car(Long id, String licensePlaze) {
         this.id = id;
@@ -22,18 +22,18 @@ public class Car {
     }
 
     public RentalOffice getRentalOffice() {
-        return rentalOffice;
+        return rentalOfficeAssigned;
     }
 
-    public void setRentalOffice(RentalOffice rentalOffice) {
-        this.rentalOffice = rentalOffice;
+    public void setRentalOffice(RentalOffice rentalOfficeAssigned) {
+        this.rentalOfficeAssigned = rentalOfficeAssigned;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long idCar) {
+    public void setId(Long id) {
         this.id = id;
     }
 

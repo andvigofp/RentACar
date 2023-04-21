@@ -55,12 +55,6 @@ public class Dialog {
         } while (true);
     }
 
-
-
-
-
-
-
     public void clientManager(){
         do {
             System.out.println("\n************************** Client Manager ********************************");
@@ -117,7 +111,7 @@ public class Dialog {
         } while (true);
     }
 
-    public void carManager() {
+    public void carManager(){
         do {
             System.out.println("\n********************** Welcome to Rent A Car *****************************");
             System.out.println("\n\t1. Add license plates.\t\t\t\t4. Find by license plates.");
@@ -126,42 +120,43 @@ public class Dialog {
             System.out.println("\n**************************************************************************");
             int choice = scanner.nextInt();
             try {
-                if (choice == 1) {
+                if(choice == 1){
                     scanner.nextLine();
                     System.out.println("Numero de matricula: ");
                     String licensePlate = scanner.nextLine();
                     carController.add(licensePlate);
-                }else if (choice ==1) {
-                    System.out.println("Car id");
+                } else if (choice == 2) {
+                    System.out.println("Car id: ");
                     int id = scanner.nextInt();
                     carController.deleteById((long) id);
                     System.out.println(carController.findAll());
-                }else if (choice == 3) {
-                    System.out.println("Car id");
+                } else if (choice == 3) {
+                    System.out.println("Car id: ");
                     int id = scanner.nextInt();
                     System.out.println("New License plate number");
                     String licensePlate = scanner.next();
                     carController.update((long) id, licensePlate);
                     carController.findAll();
-                }else if (choice == 4) {
+                } else if (choice == 4) {
                     scanner.nextLine();
                     System.out.println("License Plate: ");
                     String licensePlate = scanner.nextLine();
-                    System.out.println(carController.findBylicensePlate(licensePlate));
-                }else if (choice == 5) {
+                    System.out.println(carController.findByLicensePlate(licensePlate));
+                } else if (choice == 5) {
                     System.out.println(carController.findAll());
-                }else if (choice == 0) {
+                } else if(choice==0) {
                     getStarted();
-                }else {
-                    System.out.println("[ERROR] Your option is incorrect!! Try again!!");
+                } else {
+                    System.err.println("[ERROR] Your option is incorrect!! Try again!!");
                 }
-            }catch (InputMismatchException e) {
+
+            } catch (InputMismatchException e) {
                 System.err.println("[ERROR] You must type a number!!!");
                 scanner.next();
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-        }while (true);
+        } while (true);
     }
 
 }
