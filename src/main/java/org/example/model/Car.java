@@ -8,17 +8,26 @@ public class Car {
     private String licensePlate;
     private RentalOffice rentalOffice;
 
+
     public Car(Long id, String licensePlate, RentalOffice rentalOffice) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.rentalOffice = rentalOffice;
     }
 
-    //TODO ¿El coche se añade al array de coches de RentalOffice cuando lo creo o cuando lo añado?
-    public Car(String licensePlate, RentalOffice rentalOffice) {
+    private Car(String licensePlate, RentalOffice rentalOffice) {
         this.licensePlate = licensePlate;
         this.rentalOffice = rentalOffice;
+
     }
+
+
+    public static Car newCar(String licensePlate, RentalOffice rentalOffice){
+        Car car = new Car(licensePlate,rentalOffice);
+        rentalOffice.getCars().add(car);
+        return car;
+    }
+
 
     public Car(Long id){
         this.id = id;

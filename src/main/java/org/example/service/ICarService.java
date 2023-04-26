@@ -15,5 +15,6 @@ public interface ICarService {
     List<Car> findAll();
     Car findByLicensePlate(String licensePlate);
     void update(Car car);
+    Car findById(Long id);
 
 }

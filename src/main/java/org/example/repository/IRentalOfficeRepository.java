@@ -12,5 +12,8 @@ public interface IRentalOfficeRepository {
     void add(RentalOffice rentalOffice);
     void deleteById(Long id);
     List<RentalOffice> findAll();
-    Long nextIdAvailable();
+    List<Car> findCars(Long id);
+    void update(RentalOffice rentalOffice);
+    RentalOffice findById(Long id);
+
 }
